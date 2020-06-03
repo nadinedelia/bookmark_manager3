@@ -10,8 +10,8 @@ feature 'Bookmark Manager' do
     connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
 
     visit '/bookmarks'
-    expect(bookmarks).to include "http://www.makersacademy.com"
-    expect(bookmarks).to include "http://www.destroyallsoftware.com"
-    expect(bookmarks).to include "http://www.google.com"
+    expect(page).to have_content "http://www.makersacademy.com"
+    expect(page).to have_content "http://www.destroyallsoftware.com"
+    expect(page).to have_content "http://www.google.com"
   end
 end
