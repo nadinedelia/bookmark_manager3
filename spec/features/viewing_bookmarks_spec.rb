@@ -3,11 +3,9 @@ require 'pg'
 feature 'Bookmark Manager' do
   scenario "it should produce bookmarks" do
 
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+    Bookmark.create(link: "http://www.makersacademy.com")
+    Bookmark.create(link: "http://www.destroyallsoftware.com")
+    Bookmark.create(link: "http://www.google.com")
 
     visit '/bookmarks'
     expect(page).to have_content "http://www.makersacademy.com"

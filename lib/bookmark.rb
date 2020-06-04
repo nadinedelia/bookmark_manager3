@@ -22,6 +22,6 @@ class Bookmark
     end
 
     connection.exec("INSERT INTO bookmarks (url) VALUES('#{link}')")
-    
+
   end
 end

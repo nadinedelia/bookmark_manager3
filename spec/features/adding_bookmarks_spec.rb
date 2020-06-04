@@ -10,8 +10,9 @@ feature 'adding Bookmark' do
   scenario 'enter a bookmark and submit' do
     visit '/add'
     fill_in('link', with: 'http://www.theuselessweb.com')
+    fill_in('title', with: 'The Useless Web')
     click_button('Save')
-    
+
     expect(page).to have_content 'http://www.theuselessweb.com'
   end
 end
